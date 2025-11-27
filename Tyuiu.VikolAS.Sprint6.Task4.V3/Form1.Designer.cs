@@ -1,6 +1,6 @@
-﻿namespace WinForms1
+﻿namespace Tyuiu.VikolAS.Sprint6.Task4.V3
 {
-    partial class MainForm
+    partial class Form1
     {
         /// <summary>
         ///  Required designer variable.
