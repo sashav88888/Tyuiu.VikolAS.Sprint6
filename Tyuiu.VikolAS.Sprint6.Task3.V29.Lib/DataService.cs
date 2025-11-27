@@ -7,26 +7,24 @@ namespace Tyuiu.VikolAS.Sprint6.Task3.V29.Lib
         public int[,] Calculate(int[,] matrix)
         {
             int rows = matrix.GetLength(0);
-            int cols = matrix.GetLength(1);
 
-            var order = new (int index, int value)[rows];
-
-            for (int i = 0; i < rows; i++)
-                order[i] = (i, matrix[i, 4]);   // сортировка по 5 столбцу
-
-            Array.Sort(order, (a, b) => a.value.CompareTo(b.value));
-
-            int[,] result = new int[rows, cols];
-
+            // Сбор 5-го столбца
+            int[] fifthColumn = new int[rows];
             for (int i = 0; i < rows; i++)
             {
-                int rowIndex = order[i].index;
-
-                for (int j = 0; j < cols; j++)
-                    result[i, j] = matrix[rowIndex, j];
+                fifthColumn[i] = matrix[i, 4];
             }
 
-            return result;
+            // Сортировка по возрастанию
+            Array.Sort(fifthColumn);
+
+            // Замена 5-го столбца на отсортированный
+            for (int i = 0; i < rows; i++)
+            {
+                matrix[i, 4] = fifthColumn[i];
+            }
+
+            return matrix;
         }
     }
 }
