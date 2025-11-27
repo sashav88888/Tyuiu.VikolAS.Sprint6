@@ -7,8 +7,6 @@ namespace Tyuiu.VikolAS.Sprint6.Task3.V29.App
     {
         static void Main(string[] args)
         {
-            Console.Title = "Спринт 6 | Задание 3 | Вариант 29 | Викол А.С.";
-
             int[,] matrix =
             {
                 { -2, -13, -15, -9, -17 },
@@ -19,9 +17,9 @@ namespace Tyuiu.VikolAS.Sprint6.Task3.V29.App
             };
 
             DataService ds = new DataService();
-            int[,] sorted = ds.SortMatrix(matrix);
+            int[,] sorted = ds.Calculate(matrix);
 
-            Console.WriteLine("Матрица после сортировки по 5 столбцу:");
+            Console.WriteLine("Результат сортировки по 5 столбцу:");
 
             for (int i = 0; i < sorted.GetLength(0); i++)
             {

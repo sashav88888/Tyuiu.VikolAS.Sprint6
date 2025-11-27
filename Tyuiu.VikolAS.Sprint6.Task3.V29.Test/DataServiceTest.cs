@@ -7,7 +7,7 @@ namespace Tyuiu.VikolAS.Sprint6.Task3.V29.Test
     public class DataServiceTest
     {
         [TestMethod]
-        public void SortMatrix_CorrectSorting()
+        public void Calculate_SortingCorrect()
         {
             int[,] matrix =
             {
@@ -28,7 +28,7 @@ namespace Tyuiu.VikolAS.Sprint6.Task3.V29.Test
             };
 
             DataService ds = new DataService();
-            int[,] result = ds.SortMatrix(matrix);
+            int[,] result = ds.Calculate(matrix);
 
             CollectionAssert.AreEqual(expected, result);
         }

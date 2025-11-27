@@ -6,18 +6,13 @@ namespace Tyuiu.VikolAS.Sprint6.Task3.V29.Lib
     {
         public int[,] Calculate(int[,] matrix)
         {
-            throw new NotImplementedException();
-        }
-
-        public int[,] SortMatrix(int[,] matrix)
-        {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
 
             var order = new (int index, int value)[rows];
 
             for (int i = 0; i < rows; i++)
-                order[i] = (i, matrix[i, 4]);
+                order[i] = (i, matrix[i, 4]);   // сортировка по 5 столбцу
 
             Array.Sort(order, (a, b) => a.value.CompareTo(b.value));
 
