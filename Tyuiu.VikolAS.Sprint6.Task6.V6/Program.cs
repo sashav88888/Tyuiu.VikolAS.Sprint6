@@ -27,6 +27,7 @@ namespace Tyuiu.VikolAS.Sprint6.Task6.V6
 
                 Console.WriteLine("\nСлова содержащие 'b' или 'B':");
                 Console.WriteLine(result);
+
             }
             catch (Exception ex)
             {

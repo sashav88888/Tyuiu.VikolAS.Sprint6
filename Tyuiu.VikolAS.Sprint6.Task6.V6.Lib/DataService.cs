@@ -11,15 +11,21 @@ namespace Tyuiu.VikolAS.Sprint6.Task6.V6.Lib
 
             string text = File.ReadAllText(path);
 
-            string[] words = text.Split(new char[]
-            { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = text.Split(
+                new char[] { ' ', '\n', '\r', '\t' },
+                StringSplitOptions.RemoveEmptyEntries);
 
             List<string> result = new List<string>();
 
             foreach (string w in words)
             {
-                if (w.Contains('b') || w.Contains('B'))
-                    result.Add(w);
+                if (w.Length >= 2) // есть вторая буква
+                {
+                    if (w[1] == 'b' || w[1] == 'B')
+                    {
+                        result.Add(w);
+                    }
+                }
             }
 
             return string.Join(" ", result);

@@ -17,6 +17,7 @@ namespace Tyuiu.VikolAS.Sprint6.Task6.V6.Test
 
             DataService ds = new DataService();
 
+
             string result = ds.CollectTextFromFile(temp);
 
             string expected = "YebQ BV HbJcPW wUdVEuNB";
