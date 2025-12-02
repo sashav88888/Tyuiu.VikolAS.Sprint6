@@ -1,41 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
 using tyuiu.cources.programming.interfaces.Sprint6;
 
 namespace Tyuiu.VikolAS.Sprint6.Task4.V3.Lib
 {
     public class DataService : ISprint6Task4V3
     {
-        public List<(double x, double fx)> TabulateFunction(double start, double end, double step)
+        public double[] GetMassFunction(int startValue, int stopValue)
         {
-            var result = new List<(double x, double fx)>();
+            int len = stopValue - startValue + 1;
+            double[] result = new double[len];
 
-            for (double x = start; x <= end; x += step)
+            int index = 0;
+
+            for (int x = startValue; x <= stopValue; x++)
             {
                 double denominator = Math.Sin(x) - 3 + x;
+                double y;
 
-                double fx = Math.Abs(denominator) < 1e-10
-                    ? 0
-                    : (3 * x - 1.5) / denominator + 2;
+                if (Math.Abs(denominator) < 1e-9)
+                    y = 0;
+                else
+                    y = ((3 * x - 1.5) / denominator) + 2;
 
-                result.Add((x, Math.Round(fx, 2)));
+                result[index] = Math.Round(y, 2);
+                index++;
             }
 
             return result;
-        }
-
-        public void SaveToFile(string filePath, List<(double x, double fx)> data)
-        {
-            using (StreamWriter sw = new StreamWriter(filePath))
-                foreach (var item in data)
-                    sw.WriteLine($"{item.x.ToString(CultureInfo.InvariantCulture)};{item.fx.ToString(CultureInfo.InvariantCulture)}");
-        }
-
-        public double[] GetMassFunction(int startValue, int stopValue)
-        {
-            throw new NotImplementedException();
         }
     }
 }

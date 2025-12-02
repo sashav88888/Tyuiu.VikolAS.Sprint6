@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tyuiu.VikolAS.Sprint6.Task4.V3.Lib;
-using System;
 
 namespace Tyuiu.VikolAS.Sprint6.Task4.V3.Test
 {
@@ -8,18 +7,20 @@ namespace Tyuiu.VikolAS.Sprint6.Task4.V3.Test
     public class DataServiceTest
     {
         [TestMethod]
-        public void TabulateFunction_TestValues()
+        public void ValidGetMassFunction()
         {
-            var ds = new DataService();
-            var result = ds.TabulateFunction(-5, 5, 1);
-            Assert.AreEqual(11, result.Count);
+            DataService ds = new DataService();
 
-            foreach (var item in result)
-            {
-                double denominator = Math.Sin(item.x) - 3 + item.x;
-                double expected = Math.Abs(denominator) < 1e-10 ? 0 : Math.Round((3 * item.x - 1.5) / denominator + 2, 2);
-                Assert.AreEqual(expected, item.fx);
-            }
+            int start = -5;
+            int stop = 5;
+
+            double[] res = ds.GetMassFunction(start, stop);
+
+            Assert.AreEqual(11, res.Length);
+
+            // Проверка значения при x = 0
+            // F(0) = ((0 - 1.5) / (sin(0) - 3 + 0)) + 2 = (-1.5 / -3) + 2 = 2.5
+            Assert.AreEqual(2.5, res[5]);
         }
     }
 }
