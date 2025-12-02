@@ -25,6 +25,7 @@ namespace Tyuiu.VikolAS.Sprint6.Task6.V6
             {
                 string result = ds.CollectTextFromFile(path);
 
+
                 Console.WriteLine("\nСлова содержащие 'b' или 'B':");
                 Console.WriteLine(result);
 

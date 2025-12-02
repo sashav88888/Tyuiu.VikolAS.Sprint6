@@ -19,9 +19,10 @@ namespace Tyuiu.VikolAS.Sprint6.Task6.V6.Lib
 
             foreach (string w in words)
             {
-                if (w.Length >= 2) // есть вторая буква
+                if (w.Length >= 2)
                 {
-                    if (w[1] == 'b' || w[1] == 'B')
+                    // Вторая буква — маленькая b
+                    if (w[1] == 'b')
                     {
                         result.Add(w);
                     }
