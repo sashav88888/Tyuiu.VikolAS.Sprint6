@@ -9,23 +9,21 @@ namespace Tyuiu.VikolAS.Sprint6.Task6.V6.Test
         [TestMethod]
         public void TestCollectTextFromFile()
         {
-            // создаём временный файл
-            string tempFile = Path.GetTempFileName();
+            string temp = Path.GetTempFileName();
 
-            File.WriteAllText(tempFile,
-                "ab cd EfB gHk\n" +
-                "BBc test wordB");
+            File.WriteAllText(temp,
+                "lG YebQ BV ypiUHHFJ eAezSXF aPIjKf\n" +
+                "HbJcPW wUdVEuNB");
 
             DataService ds = new DataService();
 
-            string result = ds.CollectTextFromFile(tempFile);
+            string result = ds.CollectTextFromFile(temp);
 
-            // ожидаем слова, содержащие b или B
-            string expected = "ab EfB BBc wordB";
+            string expected = "YebQ BV HbJcPW wUdVEuNB";
 
             Assert.AreEqual(expected, result);
 
-            File.Delete(tempFile);
+            File.Delete(temp);
         }
     }
 }

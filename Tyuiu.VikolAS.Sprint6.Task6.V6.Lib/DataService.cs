@@ -11,8 +11,8 @@ namespace Tyuiu.VikolAS.Sprint6.Task6.V6.Lib
 
             string text = File.ReadAllText(path);
 
-            string[] words = text
-                .Split(new char[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = text.Split(new char[]
+            { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 
             List<string> result = new List<string>();
 
