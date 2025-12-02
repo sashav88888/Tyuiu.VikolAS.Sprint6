@@ -19,13 +19,10 @@ namespace Tyuiu.VikolAS.Sprint6.Task6.V6.Lib
 
             foreach (string w in words)
             {
-                if (w.Length >= 2)
+                // Берём слово, если в нём есть маленькая буква 'b'
+                if (w.Contains('b'))
                 {
-                    // Вторая буква — маленькая b
-                    if (w[1] == 'b')
-                    {
-                        result.Add(w);
-                    }
+                    result.Add(w);
                 }
             }
 
